@@ -1,0 +1,247 @@
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+#monthFilter, #searchBox {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 100px;
+  border: 2px solid #e6ff03;
+  width: 200px;
+}
+
+#monthFilter:focus, #searchBox:focus {
+  outline: none;
+  border-color: #8F7A6E;
+}
+
+label {
+  font-weight: bold;
+}
+
+.pagination {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pagination button {
+  font-size: 25px;
+  margin: 0 100px;
+  padding: 20px 20px;
+  border: none;
+  width: 150px;
+  border-radius: 80px;
+  background-color: #8F7A6E;
+  color: white;
+  cursor: pointer;
+}
+
+.pagination span {
+  font-size: 25px;
+}
+
+.sales_summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align items horizontally */
+  gap: 1vw; /* Adjust gap between sales_heading and sales_summary_container */
+}
+
+.sales_heading {
+  font-size: 1.2vw;
+  font-weight: 600;
+  font-family: 'Poppins'f;
+  color: #4069bb;
+  text-align: center;
+  margin: 0;
+}
+
+.sales_summary_container {
+  width: 10vw;
+  height: 10vh;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 80px;
+  padding: 1vw;
+  border: 2px solid #8F7A6E;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 0.1vw; /* Adjust gap between sub_headings */
+}
+
+.sub_headings_container {
+  display: flex; /* Display sub_headings in a row */
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;/* Stack them vertically */
+}
+
+.sub_heading {
+  font-size: 0.9vw;
+  font-weight: 800;
+  color: #4069bb;
+  text-align: center;
+  white-space: nowrap;
+  align-items: center;
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Show ellipsis if text overflows */
+  flex: 1; /* Grow to fill available space */
+}
+
+.bar_graph {
+  width: 10vw;
+  height: 10vh;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 80px;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  font-size: 1vw;
+  font-weight: 700;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #4069bb;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #8F7A6E;
+}
+
+.selected_routes {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Center align all items horizontally */
+  gap: 2vw;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 2vw;
+  padding-bottom: 2vw;
+}
+
+/* Adjust only bar_graph and pie_container */
+.bar_graph,
+.pie_container {
+  margin: auto; /* Center the elements horizontally */
+}
+
+
+.pie_container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+button.chart-button {
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 2px solid #8F7A6E;
+  background-color: #ffffff;
+  color: #8F7A6E;
+  border-radius: 90px;
+  cursor: pointer;
+}
+
+button.chart-button:hover {
+  background-color: #8F7A6E;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .sales_summary_container, .bar_graph {
+    width: 20vw;
+    height: 20vh;
+  }
+
+  .sales_heading {
+    font-size: 2vw;
+  }
+
+  .sub_heading {
+    font-size: 1.2vw;
+  }
+
+  .bar_graph {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .sales_summary_container, .bar_graph {
+    width: 30vw;
+    height: 30vh;
+  }
+
+  .sales_heading {
+    font-size: 3vw;
+  }
+
+  .sub_heading {
+    font-size: 1.8vw;
+  }
+
+  .bar_graph {
+    font-size: 3vw;
+  }
+
+  .selected_routes {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  button.chart-button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
