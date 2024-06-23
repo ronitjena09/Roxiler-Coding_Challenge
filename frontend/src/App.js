@@ -91,8 +91,8 @@ function handlepieclick()
       </div>
       <div className="selected_routes">
       <SalesSummary selectedMonth={selectedMonth} />
-      <div className="bar_graph" onClick={handlebarclick}>BarGraph for {dist[selectedMonth]}</div>
-      <div className="bar_graph"  onClick={handlepieclick}>Pie Chart for {dist[selectedMonth]}</div>
+      <div className="bar_graph" onClick={handlebarclick}>BarGraph for { selectedMonth ? dist[selectedMonth] : 'All Time' }</div>
+      <div className="bar_graph"  onClick={handlepieclick}>Pie Chart for { selectedMonth ? dist[selectedMonth] : 'All Time' }</div>
       </div>
       <table>
         <thead>

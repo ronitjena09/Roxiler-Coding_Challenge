@@ -35,7 +35,7 @@ export default function PieChart2() {
         '801-900': 0,
         '900+': 0
       });
-    console.log(selectedMonth,"hello")
+    console.log(selectedMonth,"SHOW MONTH FROM PIECHART")
 
 
     useEffect(() => {
@@ -51,17 +51,10 @@ export default function PieChart2() {
        } , []);
 
        React.useEffect(() => {
-        // Check if data.prices is an object
-        console.log(data,"hello bahiaia")
-        console.log(data,"ye haa data")
         if (typeof data2.prices === 'object' && data2.prices !== null) {
-          // Extract the prices from the object
           const prices = Object.values(data2.prices);
-          
-          // Iterate through the prices array and update priceRanges state
           prices.forEach(price => {
-            console.log(price,"pricesk,dskdfs")
-            if(price.price>40 ) console.log("magya")
+            if(price.price>40 )
             if (price.price <= 100) setPriceRanges(prevState => ({ ...prevState, '0-100': prevState['0-100'] + 1 }));
             else if (price.price <= 200) setPriceRanges(prevState => ({ ...prevState, '101-200': prevState['101-200'] + 1 }));
             else if (price.price <= 300) setPriceRanges(prevState => ({ ...prevState, '201-300': prevState['201-300'] + 1 }));
@@ -76,18 +69,18 @@ export default function PieChart2() {
         } else {
           console.error("Data is not in the expected format.");
         }
-        console.log(priceRanges['0-100'],"lansd")
+        console.log(priceRanges['0-100'])
         
         
       }, [data2]); 
 
       useEffect(() => {
         const newArray = Object.entries(priceRanges)
-        .filter(([key, value]) => value > 0) // Filter out entries with count 0
+        .filter(([key, value]) => value > 0) 
         .map(([key, value]) => ({ value, label: key })); // Map entries to objects with value and label keys
       
-      console.log(newArray,"new Artraya sksk");
-      console.log(data,"data")
+      console.log(newArray);
+      console.log(data)
        setdataaaa(newArray) 
        } , [priceRanges]);
 

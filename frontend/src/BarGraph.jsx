@@ -1,10 +1,4 @@
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Radio from '@mui/material/Radio';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { axisClasses } from '@mui/x-charts/ChartsAxis';
 import { useLocation } from 'react-router-dom';
@@ -24,7 +18,6 @@ const chartSetting = {
   ],
   series: [{ dataKey: 'seoul', label: 'Count of product', valueFormatter }],
   height: 400,
- 
   sx: {
     [`& .${axisClasses.directionY} .${axisClasses.label}`]: {
       transform: 'translateX(-10px)',
@@ -33,8 +26,6 @@ const chartSetting = {
 };
 
 export default function BarGraph() {
-  const [tickPlacement, setTickPlacement] = React.useState('middle');
-  const [tickLabelPlacement, setTickLabelPlacement] = React.useState('middle');
   const[data,setdata]=React.useState([])
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -53,12 +44,8 @@ export default function BarGraph() {
     '900+': 0
   });
 
- 
   console.log(priceRanges['0-100'],"price ranges")
-
-  
    const[dataset2,setdataset2] =React.useState([{
-   
     london: 59,
     paris: 57,
     newYork: 86,
@@ -141,16 +128,12 @@ export default function BarGraph() {
    } , []);
 
   React.useEffect(() => {
-    // Check if data.prices is an object
-    console.log(data,"hello bahiaia")
+    console.log(data)
     if (typeof data.prices === 'object' && data.prices !== null) {
-      // Extract the prices from the object
       const prices = Object.values(data.prices);
-      
-      // Iterate through the prices array and update priceRanges state
       prices.forEach(price => {
-        console.log(price,"pricesk,dskdfs")
-        if(price.price>40 ) console.log("magya")
+        console.log(price)
+        if(price.price>40 )
         if (price.price <= 100) setPriceRanges(prevState => ({ ...prevState, '0-100': prevState['0-100'] + 1 }));
         else if (price.price <= 200) setPriceRanges(prevState => ({ ...prevState, '101-200': prevState['101-200'] + 1 }));
         else if (price.price <= 300) setPriceRanges(prevState => ({ ...prevState, '201-300': prevState['201-300'] + 1 }));
@@ -165,10 +148,8 @@ export default function BarGraph() {
     } else {
       console.error("Data is not in the expected format.");
     }
-    console.log(priceRanges['0-100'],"lansd")
-    
-    
-  }, [data]); 
+    console.log(priceRanges['0-100'])
+  }, [data]);
 
   React.useEffect(()=>{
     setdataset2(
@@ -190,7 +171,6 @@ export default function BarGraph() {
       london: 47,
       paris: 53,
       newYork: 106,
-     
       seoul: priceRanges['201-300'],
       month: '201-300',
     },
@@ -198,7 +178,6 @@ export default function BarGraph() {
       london: 54,
       paris: 56,
       newYork: 92,
-     
       seoul: priceRanges['301-400'],
       month: '301-400',
     },
@@ -247,19 +226,13 @@ export default function BarGraph() {
     }])
   },[priceRanges])
   console.log(data)
-  console.log(priceRanges,"hihihihi")
+  console.log(priceRanges)
   console.log(selectedMonth)
-  console.log(dataset2,"dataset2")
+  console.log(dataset2)
   return (
     <>
     <div style={{color:"#8F7A6E",fontSize:"3vw"}}>Bar Chart Stats - { selectedMonth ? dist[selectedMonth] : 'All Time' }</div>
     <div style={{ width: '100%' }}>
-      {/* <TickParamsSelector
-        tickPlacement={tickPlacement}
-        tickLabelPlacement={tickLabelPlacement}
-        setTickPlacement={setTickPlacement}
-        setTickLabelPlacement={setTickLabelPlacement}
-      /> */}
       <BarChart
         dataset={dataset2}
         xAxis={[
