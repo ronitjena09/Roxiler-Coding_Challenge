@@ -23,12 +23,12 @@ function App() {
 const navigate=useNavigate();
   const handleMonthChange = (e) => {
     setSelectedMonth(e.target.value);
-    setCurrentPage(1); // Reset to first page on filter change
+    setCurrentPage(1); 
   };
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
-    setCurrentPage(1); // Reset to first page on search change
+    setCurrentPage(1); 
   };
 
   const filteredData = data.filter(product => {
@@ -38,7 +38,6 @@ const navigate=useNavigate();
     return matchesMonth && matchesSearch;
   });
 
-  // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
@@ -62,9 +61,9 @@ function handlepieclick()
 }
   return (
     <div>
-      <h1>Product Table</h1>
+      <h1>Transaction Dashboard</h1>
       <div className="filters">
-        <label htmlFor="monthFilter">Filter by Month:</label>
+        <label htmlFor="monthFilter">Select Month </label>
         <select id="monthFilter" value={selectedMonth} onChange={handleMonthChange}>
           <option value="">All</option>
           <option value="1">January</option>
@@ -81,7 +80,7 @@ function handlepieclick()
           <option value="12">December</option>
         </select>
 
-        <label htmlFor="searchBox">Search:</label>
+        <label htmlFor="searchBox">Search Transaction </label>
         <input
           type="text"
           id="searchBox"
